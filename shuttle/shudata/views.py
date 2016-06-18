@@ -1,3 +1,4 @@
+#import the Necessary headers
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
@@ -5,10 +6,8 @@ from rest_framework.parsers import JSONParser
 from models import provider
 from serializers import providerSerializer
 
+
 class JSONResponse(HttpResponse):
-    """
-    An HttpResponse that renders its content into JSON.
-    """
     def __init__(self, data, **kwargs):
         content = JSONRenderer().render(data)
         kwargs['content_type'] = 'application/json'
@@ -17,9 +16,6 @@ class JSONResponse(HttpResponse):
 
 @csrf_exempt
 def provider_list(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
     if request.method == 'GET':
         providers = provider.objects.all()
         serializer = providerSerializer(providers, many=True)

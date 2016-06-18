@@ -5,6 +5,7 @@ from rest_framework.parsers import JSONParser
 from models import provider
 from serializers import providerSerializer
 
+
 class JSONResponse(HttpResponse):
     """
     An HttpResponse that renders its content into JSON.
@@ -57,5 +58,5 @@ def provider_detail(request, pk):
         return JSONResponse(serializer.errors, status=400)
 
     elif request.method == 'DELETE':
-        provider.delete()
+        providers.delete()
         return HttpResponse(status=204)        

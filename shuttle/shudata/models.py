@@ -1,6 +1,6 @@
 from django.db import models
 from djgeojson.fields import PolygonField
-# Create your models here.
+#Here we are using django-geojson model fields
 
 
 class provider(models.Model):
