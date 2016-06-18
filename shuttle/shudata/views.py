@@ -57,5 +57,5 @@ def provider_detail(request, pk):
         return JSONResponse(serializer.errors, status=400)
 
     elif request.method == 'DELETE':
-        provider.delete()
+        providers.delete()
         return HttpResponse(status=204)        
